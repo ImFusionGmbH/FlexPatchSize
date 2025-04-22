@@ -8,7 +8,7 @@ In this repository, we propose two solutions that address the distribution shift
 
 2. A [hypernetwork](https://arxiv.org/abs/1609.09106) conditioned on the patch size, which dynamically generates optimal weights for the primary model based on the available context. This method provides additional performance gains, with a modest increase in training complexity.
 
-![Model schema](images/ModelSchema.png)
+![Model schema](images/ModelFigure.png)
 
 # Repository organization
 

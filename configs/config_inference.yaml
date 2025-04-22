@@ -1,0 +1,24 @@
+output_path: ./results_inference
+checkpoint: null
+patch_size_dict: null  # dictionary containing patch sizes to use at inference
+model_type: UNet  # [HyperPatch, UNet]
+model:
+  hypernetwork_layers: [3, 50, 50, 50]    
+  in_c: 1
+  out_c: null
+  n_down: 3
+  n_fix: 3
+  C: 16
+  n_dim: 3
+  film: False
+
+dataset:
+  data_file: data_files/Learn2Reg_test.txt
+  spacing: [2.0, 2.0, 2.0]
+  n_labels: 5
+  batch_size: 2
+  flip_image_content: False  # if True, the image content will be flipped (only used for Learn2Reg dataset)  
+  flip_axes: 2  # axes to flip the image content (only used for Learn2Reg dataset)
+
+
+

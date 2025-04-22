@@ -1,0 +1,28 @@
+output_path: ./results
+checkpoint: null
+model_type: UNet  # [HyperPatch, UNet]
+model:
+  hypernetwork_layers: [3, 50, 50, 50]    
+  in_c: 1
+  out_c: null
+  n_down: 3
+  n_fix: 3
+  C: 16
+  n_dim: 3
+
+dataset:
+  data_file_train: data_files/AMOS_training.txt
+  data_file_val: data_files/AMOS_validation.txt
+  spacing: [2.0, 2.0, 2.0]  # target spacing of the data
+  n_labels: 5  # number of labels in the dataset (excluding background)
+  patch_size_range: [32, 200]  # patch size range for training
+  use_fixed_patch_size: False  # if True, the patch size will be fixed to the value in fixed_patch_size (U-Net FP)
+  fixed_patch_size: [64, 64, 64]  # fixed patch size for training (if use_fixed_patch_size is True)
+  only_divisible_patch_sizes: True  # if True, only patch sizes that are divisible by 2**(n_down) will be used
+
+training:
+  epochs: 20000
+  repeat: 5
+  accumulation_steps: 1  # gradient accumulation steps
+  batch_size: 1
+
